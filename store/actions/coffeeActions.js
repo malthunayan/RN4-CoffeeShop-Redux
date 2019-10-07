@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as actionTypes from "./types";
+import { GET_COFFEESHOPS, COFFEESHOPS_LOADING } from "./types";
 
 export const getCoffeeShops = () => {
   return async dispatch => {
@@ -8,7 +8,7 @@ export const getCoffeeShops = () => {
       const res = await axios.get("http://178.128.114.232/api/?format=json");
       const coffeeShops = res.data;
       dispatch({
-        type: actionTypes.GET_COFFEESHOPS,
+        type: GET_COFFEESHOPS,
         payload: coffeeShops
       });
     } catch (err) {
@@ -18,5 +18,5 @@ export const getCoffeeShops = () => {
 };
 
 export const setCoffeeShopsLoading = () => ({
-  type: actionTypes.COFFEESHOPS_LOADING
+  type: COFFEESHOPS_LOADING
 });
